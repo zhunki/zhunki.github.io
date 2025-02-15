@@ -46,10 +46,6 @@ nav ul li.selected {
     background-color: orange;
 }
 
-nav ul li:hover {
-    background-color: #555;
-}
-
 nav ul li a {
     color: white;
     text-decoration: none;

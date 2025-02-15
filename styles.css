@@ -25,7 +25,7 @@ header .title {
 
 /* 菜单栏样式 */
 nav {
-    background-color: #444;
+    background-color: #555;
     padding: 0;
 }
 
@@ -76,7 +76,7 @@ nav ul li a {
 .paper {
     padding: 20px;
     background-color: white;
-    max-width: 900px;
+    max-width: 920px;
     margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

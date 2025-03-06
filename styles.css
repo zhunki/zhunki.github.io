@@ -86,3 +86,14 @@ nav ul li a {
     font-size: 1em;
     line-height: 1.25;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    /* 垂直居中对齐 */
+}
+
+.container img {
+    margin-right: 20px;
+    /* 图片和文字之间的间距 */
+}

@@ -9,8 +9,11 @@
         header {
             background-color: #007acc;
             color: white;
-            padding: 40px 20px;
+            padding: 20px 20px;
             text-align: center;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
         }
 
         header img {
@@ -30,11 +33,11 @@
         }
 
         section {
-            padding: 20px 20px;
-            max-width: 800px;
+            padding: 5px 20px;
+            max-width: 950px;
             margin: auto;
             background: white;
-            margin-top: 20px;
+            margin-top: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
@@ -51,8 +54,13 @@
         }
 
         li {
-            line-height: 1.8;
-            margin-bottom: 8px;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        ol {
+            list-style: decimal;
+            padding-left: 25px;
         }
 
         footer {
@@ -71,25 +79,47 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .highlight {
+            background-color: yellow;
+            color: red;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="zhunki.jpg" alt="王俊杰个人照片">
-        <h1>王俊杰</h1>
-        <p>天津大学 | 网安学院 | 副教授/博导 ｜ junjie.wang@tju.edu.cn</p>
+        <div>
+            <img src="zhunki.jpg" alt="王俊杰个人照片">
+        </div>
+        <div>
+            <h1>王俊杰</h1>
+            <p>天津大学 | 网络安全学院 | 副教授/博导 ｜ junjie.wang@tju.edu.cn</p>
+        </div>
     </header>
 
     <section>
-        <h2>学习/工作经历</h2>
+        <h2>个人简介</h2>
         <ul>
-            <li>2007年9月-2011年7月，天津大学，软件工程，学士</li>
-            <li>2011年9月-2014年1月，天津大学，计算机科学与技术，硕士</li>
-            <li>2014年1月-2015年1月，新加坡国立大学，淡马锡实验室，研究助理</li>
-            <li>2015年1月-2019年3月，新加坡南洋理工大学，计算机科学与工程，博士</li>
+            <li>王俊杰，天津大学网络安全学院副教授、博导，研究方向为浏览器、车联网、网络设备等关键目标的漏洞挖掘。</li>
+            <li>在S&P、Usenix Security等CCF-A类会议、期刊上发表论文13篇，主持青年基金、重点研发、校企合作等项目5项。</li>
+            <li>获得2020年msrc top100安全研究员、网安领域优秀人才称号，获得ICSE 2026 Distinguished Paper Award。</li>
+            <li>招收漏挖方向博士、硕士，有意者请发送简历至junjie.wang@tju.edu.cn。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>学习工作经历</h2>
+        <ul>
+            <li>2019年11月-至今，天津大学，网络安全学院，副教授</li>
             <li>2018年6月-2019年11月，奇安信，代码安全实验室，安全研究员</li>
-            <li>2019年11月-至今，天津大学，网安学院，副教授</li>
+            <li>2015年1月-2019年3月，新加坡南洋理工大学，计算机科学与工程，博士</li>
+            <li>2014年1月-2015年1月，新加坡国立大学，淡马锡实验室，研究助理</li>
+            <li>2011年9月-2014年1月，天津大学，计算机科学与技术，硕士</li>
+            <li>2007年9月-2011年7月，天津大学，软件工程，学士</li>
         </ul>
     </section>
 
@@ -97,19 +127,22 @@
         <h2>团队成员</h2>
         <ul>
             <li>
-                2021：张向伟
-            </li>
-            <li>
-                2023：马宇涵，谢远峰
-            </li>
-            <li>
-                2024：孙彦帮
+                2026：史天宇，贾公正，梁明磊
             </li>
             <li>
                 2025：王跃林，谢芷桦，孙耀辉
             </li>
             <li>
-                2026：史天宇，贾公正，梁明磊
+                2024：孙彦帮
+            </li>
+            <li>
+                2023：马宇涵，谢远峰
+            </li>
+            <li>
+                2022：许梦迪
+            </li>
+            <li>
+                2021：张向伟，余先刚
             </li>
         </ul>
     </section>
@@ -118,69 +151,80 @@
         <h2>论文发表</h2>
         <ol>
             <li>
-                (<strong>ISSTA 2015</strong>)
-                Detection and Classification of Malicious Javascript via Attack Behavior Modeling<br>
-                Yinxing Xue, <span style="color: #007acc;">Junjie Wang</span>, Yang Liu, Hao Xiao, Jun Sun, Mahinthan Chandramohan
-            </li>
-            <li>
-                (<strong>S&P 2017</strong>)
-                Skyfire: Data-Driven Seed Generation for Fuzzing<br>
-                <span style="color: #007acc;">Junjie Wang</span>, Bihuan Chen, Lei Wei, Yang Liu
-            </li>
-            <li>
-                (<strong>ICSE 2019</strong>)
-                Superion: Grammar-Aware Greybox Fuzzing<br>
-                <span style="color: #007acc;">Junjie Wang</span>, Bihuan Chen, Lei Wei, Yang Liu
-            </li>
-            <li>
-                (<strong>Usenix Security 2023</strong>)
-                FuzzJIT: Oracle-Enhanced Fuzzing for JavaScript Engine JIT Compiler<br>
-                <span style="color: #007acc;">Junjie Wang</span>, Zhiyi Zhang, Shuang Liu, Xiaoning Du, Junjie Chen
-            </li>
-            <li>
-                (<strong>ISSTA 2024</strong>)
-                FT2Ra: A Fine-Tuning-Inspired Approach to Retrieval-Augmented Code Completion<br>
-                Qi Guo, Xiaohong Li, Xiaofei Xie, Shangqing Liu, Ze Tang, Ruitao Feng, <span style="color: #007acc;">Junjie Wang</span>, Jidong Ge, Lei Bu
-            </li>
-            <li>
-                (<strong>TSE 2024</strong>)
-                A Comprehensive Study on Static Application Security Testing (SAST) Tools for Android<br>
-                Jingyun Zhu, Kaixuan Li, Sen Chen, Lingling Fan, <span style="color: #007acc;">Junjie Wang</span>, Xiaofei Xie
-            </li>
-            <li>
-                (<strong>ICSE 2025</strong>)
-                Decictor: Towards Evaluating the Robustness of Decision-Making in Autonomous Driving Systems<br>
-                Mingfei Cheng, Xiaofei Xie, Yuan Zhou, <span style="color: #007acc;">Junjie Wang</span>, Guozhu Meng, Kairui Yang
-            </li>
-            <li>
-                (<strong>VLDB 2025</strong>)
-                Semantic Conformance Testing of Relational DBMS<br>
-                Shuang Liu, Chenglin Tian, Jun Sun, Ruifeng Wang, Wei Lu, Yongxin Zhao, Yinxing Xue, <span style="color: #007acc;">Junjie Wang</span>, Xiaoyong Du
-            </li>
-            <li>
-                (<strong>WWW 2025</strong>)
-                TensorJSFuzz: Effective Testing of Web-Based Deep Learning Frameworks via Input-Constraint Extraction<br>
-                Lili Quan, Xiaofei Xie, Qianyu Guo, Lingxiao Jiang, Sen Chen, <span style="color: #007acc;">Junjie Wang</span>, Xiaohong Li
-            </li>
-            <li>
-                (<strong>ASE 2025</strong>)
-                SPEC2CODE: Mapping Software Specification to Function-Level Code Implementation<br>
-                Yuekun Wang, Lili Quan, Xiaofei Xie, <span style="color: #007acc;">Junjie Wang</span>, Jianjun Chen
-            </li>
-            <li>
-                (<strong>ICSE 2026</strong>)
-                Towards Understanding and Characterizing Vulnerabilities in Intelligent Connected Vehicles through Real-World Exploits<br>
-                Yuelin Wang, Yuqiao Ning, Yanbang Sun, Xiaofei Xie, Zhihua Xie, Yang Chen, Zhen Guo, Shihao Xue, <span style="color: #007acc;">Junjie Wang*</span>, Sen Chen
+                (<strong>TSE 2026</strong>)
+                CodeS+: Towards Assessing the Generalization Ability of Code Models Under Distribution Shift<br>
+                Ziyue Shi, <span style="color: #007acc;">Junjie Wang</span>, Yuejun Guo, Xiaofei Xie, Qiang Hu*, Maxime
+                Cordy, Sen Chen, Mike Papadakis, Yves Le Traon, Yongqiang Lyu
             </li>
             <li>
                 (<strong>WWW 2026</strong>)
                 SemFuzz: A Semantics-Aware Fuzzing Framework for Network Protocol Implementations<br>
-                Yanbang Sun, Quan Luo, Yuelin Wang, Qian Chen, Benjin Liu, Ruiqi Chen, Qing Huang, Xiaohong Li， <span style="color: #007acc;">Junjie Wang*</span>
+                Yanbang Sun, Quan Luo, Yuelin Wang, Qian Chen, Benjin Liu, Ruiqi Chen, Qing Huang, Xiaohong Li*， <span
+                    style="color: #007acc;">Junjie Wang*</span>
             </li>
             <li>
-                (<strong>TSE 2026</strong>)
-                CodeS+: Towards Assessing the Generalization Ability of Code Models Under Distribution Shift<br>
-                Ziyue Shi, <span style="color: #007acc;">Junjie Wang</span>, Yuejun Guo, Xiaofei Xie, Qiang Hu, Maxime Cordy, Sen Chen, Mike Papadakis, Yves Le Traon, Yongqiang Lyu
+                (<strong>ICSE 2026</strong>)
+                Towards Understanding and Characterizing Vulnerabilities in Intelligent Connected Vehicles through
+                Real-World Exploits <span class="highlight">Distinguished Paper Award</span><br>
+                Yuelin Wang, Yuqiao Ning, Yanbang Sun, Xiaofei Xie, Zhihua Xie, Yang Chen, Zhen Guo, Shihao Xue, <span
+                    style="color: #007acc;">Junjie Wang*</span>, Sen Chen
+            </li>
+            <li>
+                (<strong>ASE 2025</strong>)
+                SPEC2CODE: Mapping Software Specification to Function-Level Code Implementation<br>
+                Yuekun Wang, Lili Quan*, Xiaofei Xie, <span style="color: #007acc;">Junjie Wang</span>, Jianjun Chen
+            </li>
+            <li>
+                (<strong>WWW 2025</strong>)
+                TensorJSFuzz: Effective Testing of Web-Based Deep Learning Frameworks via Input-Constraint
+                Extraction<br>
+                Lili Quan, Xiaofei Xie, Qianyu Guo, Lingxiao Jiang, Sen Chen*, <span style="color: #007acc;">Junjie
+                    Wang</span>, Xiaohong Li*
+            </li>
+            <li>
+                (<strong>VLDB 2025</strong>)
+                Semantic Conformance Testing of Relational DBMS<br>
+                Shuang Liu, Chenglin Tian, Jun Sun, Ruifeng Wang, Wei Lu*, Yongxin Zhao, Yinxing Xue, <span
+                    style="color: #007acc;">Junjie Wang</span>, Xiaoyong Du
+            </li>
+            <li>
+                (<strong>ICSE 2025</strong>)
+                Decictor: Towards Evaluating the Robustness of Decision-Making in Autonomous Driving Systems<br>
+                Mingfei Cheng, Xiaofei Xie, Yuan Zhou*, <span style="color: #007acc;">Junjie Wang</span>, Guozhu Meng,
+                Kairui Yang
+            </li>
+            <li>
+                (<strong>TSE 2024</strong>)
+                A Comprehensive Study on Static Application Security Testing (SAST) Tools for Android<br>
+                Jingyun Zhu, Kaixuan Li, Sen Chen*, Lingling Fan, <span style="color: #007acc;">Junjie Wang</span>,
+                Xiaofei Xie
+            </li>
+            <li>
+                (<strong>ISSTA 2024</strong>)
+                FT2Ra: A Fine-Tuning-Inspired Approach to Retrieval-Augmented Code Completion<br>
+                Qi Guo, Xiaohong Li, Xiaofei Xie, Shangqing Liu*, Ze Tang, Ruitao Feng, <span
+                    style="color: #007acc;">Junjie Wang</span>, Jidong Ge, Lei Bu
+            </li>
+            <li>
+                (<strong>Usenix Security 2023</strong>)
+                FuzzJIT: Oracle-Enhanced Fuzzing for JavaScript Engine JIT Compiler<br>
+                <span style="color: #007acc;">Junjie Wang</span>, Zhiyi Zhang, Shuang Liu*, Xiaoning Du, Junjie Chen
+            </li>
+            <li>
+                (<strong>ICSE 2019</strong>)
+                Superion: Grammar-Aware Greybox Fuzzing<br>
+                <span style="color: #007acc;">Junjie Wang</span>, Bihuan Chen*, Lei Wei, Yang Liu
+            </li>
+            <li>
+                (<strong>S&P 2017</strong>)
+                Skyfire: Data-Driven Seed Generation for Fuzzing<br>
+                <span style="color: #007acc;">Junjie Wang</span>, Bihuan Chen*, Lei Wei, Yang Liu
+            </li>
+            <li>
+                (<strong>ISSTA 2015</strong>)
+                Detection and Classification of Malicious Javascript via Attack Behavior Modeling<br>
+                Yinxing Xue, <span style="color: #007acc;">Junjie Wang</span>, Yang Liu, Hao Xiao, Jun Sun, Mahinthan
+                Chandramohan
             </li>
         </ol>
     </section>
@@ -189,31 +233,34 @@
         <h2>竞赛获奖</h2>
         <ol>
             <li>
-                2020年微软全球Top100最具价值安全研究员
+                “铸网-2025”网络安全实网攻防演练网安实战先锋团队，指导教师
             </li>
             <li>
-                2020年天津市科学技术进步奖一等奖
-            </li>
-            <li>
-                2024年京津冀大学生信息安全网络攻防大赛一等奖，指导教师
-            </li>
-            <li>
-                2025年第一届HISEC杯全国高校汽车信息安全挑战赛优胜奖（第一名）
-            </li>
-            <li>
-                2025年第一届全国大学生人工智能安全竞赛对抗赛一等奖，指导教师
-            </li>
-            <li>
-                2025年（第18届）全国大学生软件创新大赛软件系统安全赛二等奖，指导教师
-            </li>
-            <li>
-                2025年（第18届）中国大学生计算机设计大赛二等奖，指导教师
+                2025年第四届NVDB-CAVD杯年度总决赛三等奖，指导教师
             </li>
             <li>
                 2025年第 22届全国大学生信息安全与对抗技术竞赛二等奖，指导教师
             </li>
             <li>
-                2025年第四届NVDB-CAVD杯年度总决赛三等奖，指导教师
+                2025年（第18届）中国大学生计算机设计大赛二等奖，指导教师
+            </li>
+            <li>
+                2025年（第18届）全国大学生软件创新大赛软件系统安全赛二等奖，指导教师
+            </li>
+            <li>
+                2025年第一届全国大学生人工智能安全竞赛对抗赛一等奖，指导教师
+            </li>
+            <li>
+                2025年第一届HISEC杯全国高校汽车信息安全挑战赛优胜奖（第一名），指导教师
+            </li>
+            <li>
+                2024年京津冀大学生信息安全网络攻防大赛一等奖，指导教师
+            </li>
+            <li>
+                2020年天津市科学技术进步奖一等奖
+            </li>
+            <li>
+                2020年微软全球Top100最具价值安全研究员
             </li>
         </ol>
     </section>
